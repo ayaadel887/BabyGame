@@ -11,7 +11,7 @@ class AnimalsL1 extends StatefulWidget {
 }
 
 class _AnimalsL1State extends State<AnimalsL1> {
-  
+
   Offset posHorse = Offset(400, 50);
 
   bool horseAcc = false;
@@ -23,9 +23,9 @@ class _AnimalsL1State extends State<AnimalsL1> {
   Widget build(BuildContext context) {
 
     SystemChrome.setPreferredOrientations([
-  DeviceOrientation.landscapeLeft,
-  DeviceOrientation.landscapeRight,
-]);
+      DeviceOrientation.landscapeLeft,
+      DeviceOrientation.landscapeRight,
+    ]);
     return Scaffold(
       body: Container(
         width: double.infinity,
@@ -42,26 +42,26 @@ class _AnimalsL1State extends State<AnimalsL1> {
                   "Your Score : $score",
                   style: TextStyle(fontSize: 25, color: Colors.yellow),
                 ),
-              
+
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: <Widget>[
-                
-                    buildDragTarget(
-                        "assets/horse1.png", "assets/horse2.png", "horse", horseAcc),
-                   
-                  ]
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: <Widget>[
+
+                      buildDragTarget(
+                          "assets/horse1.png", "assets/horse2.png", "horse", horseAcc),
+
+                    ]
                 )
               ],
             ),
-          
+
             horseAcc
                 ? Container()
                 : DragObject(
-                    image: "assets/horse1.png",
-                    position: posHorse,
-                    dataNama: "horse",
-                  ),
+              image: "assets/horse1.png",
+              position: posHorse,
+              dataNama: "horse",
+            ),
           ],
         ),
       ),
@@ -73,48 +73,48 @@ class _AnimalsL1State extends State<AnimalsL1> {
       builder: (context, List<String> data, rj) {
         return acc
             ? Image.asset(
-                image,
-                width: 130,
-                height: 130,
-              )
+          image,
+          width: 130,
+          height: 130,
+        )
             : data.isEmpty
-                ? Image.asset(
-                    image2,
-                    width: 130,
-                    height: 130,
-                  )
-                : Opacity(
-                    opacity: 0.7,
-                    child: Image.asset(
-                      image2,
-                      width: 130,
-                      height: 130,
-                    ),
-                  );
+            ? Image.asset(
+          image2,
+          width: 130,
+          height: 130,
+        )
+            : Opacity(
+          opacity: 0.7,
+          child: Image.asset(
+            image2,
+            width: 130,
+            height: 130,
+          ),
+        );
       },
       onAccept: (data) {
         if (data == nama) {
           setState(() {
             acc = true;
             score+=25;
-             plyr.play('success.mp3');
+            plyr.play('success.mp3');
 
           });
 
           switch (nama) {
-          
-           
+
+
             case 'horse':
               setState(() {
                 horseAcc = true;
                 plyr.play('horse.mp3');
-               Navigator.push(
-                                context,
-          MaterialPageRoute(builder: (context) =>  AnimalsL2()),
-               ); 
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) =>  AnimalsL2()),
+                );
               });
               break;
-           
+
             default:
           }
         }
@@ -123,7 +123,7 @@ class _AnimalsL1State extends State<AnimalsL1> {
   }
 
   State<StatefulWidget> createState() {
-   
+
     return null;
   }
 }

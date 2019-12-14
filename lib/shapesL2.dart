@@ -11,7 +11,7 @@ class ShapesL2 extends StatefulWidget {
 }
 
 class _ShapesL2State extends State<ShapesL2> {
-  
+
   Offset possquire = Offset(400, 50);
 
   bool squireAcc = false;
@@ -23,14 +23,14 @@ class _ShapesL2State extends State<ShapesL2> {
   Widget build(BuildContext context) {
 
     SystemChrome.setPreferredOrientations([
-  DeviceOrientation.landscapeLeft,
-  DeviceOrientation.landscapeRight,
-]);
+      DeviceOrientation.landscapeLeft,
+      DeviceOrientation.landscapeRight,
+    ]);
     return Scaffold(
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        
+
         child: Stack(
           children: <Widget>[
             Column(
@@ -45,24 +45,24 @@ class _ShapesL2State extends State<ShapesL2> {
                   child: score==100 ? Text("YOU WIN", style: TextStyle(fontSize: 50, color: Colors.red),): Container(),
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: <Widget>[
-                
-                    buildDragTarget(
-                        "assets/shapes/bluesquire.jpg", "assets/shapes/bluesquire2.jpg", "squire", squireAcc),
-                   
-                  ]
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: <Widget>[
+
+                      buildDragTarget(
+                          "assets/shapes/bluesquire.jpg", "assets/shapes/bluesquire2.jpg", "squire", squireAcc),
+
+                    ]
                 )
               ],
             ),
-          
+
             squireAcc
                 ? Container()
                 : DragObject(
-                    image: "assets/shapes/bluesquire.jpg",
-                    position: possquire,
-                    dataNama: "squire",
-                  ),
+              image: "assets/shapes/bluesquire.jpg",
+              position: possquire,
+              dataNama: "squire",
+            ),
           ],
         ),
       ),
@@ -74,47 +74,47 @@ class _ShapesL2State extends State<ShapesL2> {
       builder: (context, List<String> data, rj) {
         return acc
             ? Image.asset(
-                image,
-                width: 130,
-                height: 130,
-              )
+          image,
+          width: 130,
+          height: 130,
+        )
             : data.isEmpty
-                ? Image.asset(
-                    image2,
-                    width: 130,
-                    height: 130,
-                  )
-                : Opacity(
-                    opacity: 0.7,
-                    child: Image.asset(
-                      image2,
-                      width: 130,
-                      height: 130,
-                    ),
-                  );
+            ? Image.asset(
+          image2,
+          width: 130,
+          height: 130,
+        )
+            : Opacity(
+          opacity: 0.7,
+          child: Image.asset(
+            image2,
+            width: 130,
+            height: 130,
+          ),
+        );
       },
       onAccept: (data) {
         if (data == nama) {
           setState(() {
             acc = true;
             score+=100;
-             plyr.play('success.mp3');
+            plyr.play('success.mp3');
 
           });
 
           switch (nama) {
-          
-           
+
+
             case 'squire':
               setState(() {
                 squireAcc = true;
-               Navigator.push(
-                                context,
-          MaterialPageRoute(builder: (context) =>  ShapesLevels()),
-               ); 
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) =>  ShapesLevels()),
+                );
               });
               break;
-           
+
             default:
           }
         }
@@ -123,7 +123,7 @@ class _ShapesL2State extends State<ShapesL2> {
   }
 
   State<StatefulWidget> createState() {
-   
+
     return null;
   }
 }

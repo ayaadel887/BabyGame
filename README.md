@@ -1,4 +1,4 @@
-# smart_baby_shapes
+# smart_baby_shape
 
 A new Flutter project.
 

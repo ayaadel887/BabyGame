@@ -19,9 +19,9 @@ class _AnimalsL2State extends State<AnimalsL2> {
   Widget build(BuildContext context) {
 
     SystemChrome.setPreferredOrientations([
-  DeviceOrientation.landscapeLeft,
-  DeviceOrientation.landscapeRight,
-]);
+      DeviceOrientation.landscapeLeft,
+      DeviceOrientation.landscapeRight,
+    ]);
     return Scaffold(
       body: Container(
         width: double.infinity,
@@ -47,21 +47,21 @@ class _AnimalsL2State extends State<AnimalsL2> {
                   children: <Widget>[
                     buildDragTarget(
                         "assets/camel1.png", "assets/camel2.png", "camel", camelAcc),
-                  
-                   
+
+
                   ],
                 )
               ],
             ),
-         
+
             camelAcc
                 ? Container()
                 : DragObject(
-                    image: "assets/camel1.png",
-                    position: posCamel,
-                    dataNama: "camel",
-                  ),
-            
+              image: "assets/camel1.png",
+              position: posCamel,
+              dataNama: "camel",
+            ),
+
           ],
         ),
       ),
@@ -73,35 +73,35 @@ class _AnimalsL2State extends State<AnimalsL2> {
       builder: (context, List<String> data, rj) {
         return acc
             ? Image.asset(
-                image,
-                width: 130,
-                height: 130,
-              )
+          image,
+          width: 130,
+          height: 130,
+        )
             : data.isEmpty
-                ? Image.asset(
-                    image2,
-                    width: 130,
-                    height: 130,
-                  )
-                : Opacity(
-                    opacity: 0.7,
-                    child: Image.asset(
-                      image2,
-                      width: 130,
-                      height: 130,
-                    ),
-                  );
+            ? Image.asset(
+          image2,
+          width: 130,
+          height: 130,
+        )
+            : Opacity(
+          opacity: 0.7,
+          child: Image.asset(
+            image2,
+            width: 130,
+            height: 130,
+          ),
+        );
       },
       onAccept: (data) {
         if (data == nama) {
           setState(() {
             acc = true;
             score+=50;
-             plyr.play('success.mp3');
-               Navigator.push(
-                                context,
-          MaterialPageRoute(builder: (context) =>  AnimalsL3()),
-               );
+            plyr.play('success.mp3');
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) =>  AnimalsL3()),
+            );
           });
 
           switch (nama) {
@@ -110,8 +110,8 @@ class _AnimalsL2State extends State<AnimalsL2> {
                 camelAcc = true;
               });
               break;
-           
-   
+
+
             default:
           }
         }
@@ -120,7 +120,7 @@ class _AnimalsL2State extends State<AnimalsL2> {
   }
 
   State<StatefulWidget> createState() {
-  
+
     return null;
   }
 }

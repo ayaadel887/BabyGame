@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'AnimalsL4..dart';
+import 'AnimalsL4.dart';
 import 'dragObject.dart';
 import 'package:audioplayers/audio_cache.dart';
 
@@ -19,9 +19,9 @@ class _AnimalsL3State extends State<AnimalsL3> {
   Widget build(BuildContext context) {
 
     SystemChrome.setPreferredOrientations([
-  DeviceOrientation.landscapeLeft,
-  DeviceOrientation.landscapeRight,
-]);
+      DeviceOrientation.landscapeLeft,
+      DeviceOrientation.landscapeRight,
+    ]);
     return Scaffold(
       body: Container(
         width: double.infinity,
@@ -47,19 +47,19 @@ class _AnimalsL3State extends State<AnimalsL3> {
                   children: <Widget>[
                     buildDragTarget("assets/giraffe1.png", "assets/giraffe2.png",
                         "giraffe", giraffeAcc),
-                   
+
                   ],
                 )
               ],
             ),
-         
-             giraffeAcc
+
+            giraffeAcc
                 ? Container()
                 : DragObject(
-                    image: "assets/giraffe1.png",
-                    position: posGiraffe,
-                    dataNama: "giraffe",
-                  ),
+              image: "assets/giraffe1.png",
+              position: posGiraffe,
+              dataNama: "giraffe",
+            ),
           ],
         ),
       ),
@@ -71,31 +71,31 @@ class _AnimalsL3State extends State<AnimalsL3> {
       builder: (context, List<String> data, rj) {
         return acc
             ? Image.asset(
-                image,
-                width: 130,
-                height: 130,
-              )
+          image,
+          width: 130,
+          height: 130,
+        )
             : data.isEmpty
-                ? Image.asset(
-                    image2,
-                    width: 130,
-                    height: 130,
-                  )
-                : Opacity(
-                    opacity: 0.7,
-                    child: Image.asset(
-                      image2,
-                      width: 130,
-                      height: 130,
-                    ),
-                  );
+            ? Image.asset(
+          image2,
+          width: 130,
+          height: 130,
+        )
+            : Opacity(
+          opacity: 0.7,
+          child: Image.asset(
+            image2,
+            width: 130,
+            height: 130,
+          ),
+        );
       },
       onAccept: (data) {
         if (data == nama) {
           setState(() {
             acc = true;
             score+=70;
-             plyr.play('success.mp3');
+            plyr.play('success.mp3');
 
 
 
@@ -106,15 +106,15 @@ class _AnimalsL3State extends State<AnimalsL3> {
               setState(() {
                 giraffeAcc = true;
                 plyr.play('giraffe.mp3');
-                 Navigator.push(
-                                context,
-          MaterialPageRoute(builder: (context) =>  AnimalsL4()),
-               );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) =>  AnimalsL4()),
+                );
 
               });
               break;
-           
-   
+
+
             default:
           }
         }
@@ -123,7 +123,7 @@ class _AnimalsL3State extends State<AnimalsL3> {
   }
 
   State<StatefulWidget> createState() {
-  
+
     return null;
   }
 }

@@ -26,9 +26,9 @@ class _AnimalsState extends State<Animals> {
   Widget build(BuildContext context) {
 
     SystemChrome.setPreferredOrientations([
-  DeviceOrientation.landscapeLeft,
-  DeviceOrientation.landscapeRight,
-]);
+      DeviceOrientation.landscapeLeft,
+      DeviceOrientation.landscapeRight,
+    ]);
     return Scaffold(
       body: Container(
         width: double.infinity,
@@ -67,31 +67,31 @@ class _AnimalsState extends State<Animals> {
             zebraAcc
                 ? Container()
                 : DragObject(
-                    image: "assets/zebra1.png",
-                    position: posZebra,
-                    dataNama: "zebra",
-                  ),
+              image: "assets/zebra1.png",
+              position: posZebra,
+              dataNama: "zebra",
+            ),
             giraffeAcc
                 ? Container()
                 : DragObject(
-                    image: "assets/giraffe1.png",
-                    position: posGiraffe,
-                    dataNama: "giraffe",
-                  ),
+              image: "assets/giraffe1.png",
+              position: posGiraffe,
+              dataNama: "giraffe",
+            ),
             camelAcc
                 ? Container()
                 : DragObject(
-                    image: "assets/camel1.png",
-                    position: posCamel,
-                    dataNama: "camel",
-                  ),
+              image: "assets/camel1.png",
+              position: posCamel,
+              dataNama: "camel",
+            ),
             horseAcc
                 ? Container()
                 : DragObject(
-                    image: "assets/horse1.png",
-                    position: posHorse,
-                    dataNama: "horse",
-                  ),
+              image: "assets/horse1.png",
+              position: posHorse,
+              dataNama: "horse",
+            ),
           ],
         ),
       ),
@@ -103,31 +103,31 @@ class _AnimalsState extends State<Animals> {
       builder: (context, List<String> data, rj) {
         return acc
             ? Image.asset(
-                image,
-                width: 130,
-                height: 130,
-              )
+          image,
+          width: 130,
+          height: 130,
+        )
             : data.isEmpty
-                ? Image.asset(
-                    image2,
-                    width: 130,
-                    height: 130,
-                  )
-                : Opacity(
-                    opacity: 0.7,
-                    child: Image.asset(
-                      image2,
-                      width: 130,
-                      height: 130,
-                    ),
-                  );
+            ? Image.asset(
+          image2,
+          width: 130,
+          height: 130,
+        )
+            : Opacity(
+          opacity: 0.7,
+          child: Image.asset(
+            image2,
+            width: 130,
+            height: 130,
+          ),
+        );
       },
       onAccept: (data) {
         if (data == nama) {
           setState(() {
             acc = true;
             score+=25;
-             plyr.play('success.mp3');
+            plyr.play('success.mp3');
 
           });
 
@@ -163,7 +163,7 @@ class _AnimalsState extends State<Animals> {
   }
 
   State<StatefulWidget> createState() {
-  
+
     return null;
   }
 }

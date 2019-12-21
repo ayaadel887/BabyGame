@@ -13,15 +13,13 @@ class AnimalsL3 extends StatefulWidget {
 class _AnimalsL3State extends State<AnimalsL3> {
   Offset posGiraffe = Offset(270, 50);
   bool giraffeAcc = false;
-  int score=0;
 
   @override
   Widget build(BuildContext context) {
-
     SystemChrome.setPreferredOrientations([
-  DeviceOrientation.landscapeLeft,
-  DeviceOrientation.landscapeRight,
-]);
+      DeviceOrientation.landscapeLeft,
+      DeviceOrientation.landscapeRight,
+    ]);
     return Scaffold(
       body: Container(
         width: double.infinity,
@@ -34,26 +32,20 @@ class _AnimalsL3State extends State<AnimalsL3> {
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                Text(
-                  "Your Score : $score",
-                  style: TextStyle(fontSize: 25, color: Colors.yellow),
-                ),
                 Container(
-                  height: 130,
-                  child: score==100 ? Text("YOU WIN", style: TextStyle(fontSize: 50, color: Colors.red),): Container(),
+                  padding: EdgeInsets.only(top: 70.0),
+                  height: 200.0,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
-                    buildDragTarget("assets/giraffe1.png", "assets/giraffe2.png",
-                        "giraffe", giraffeAcc),
-                   
+                    buildDragTarget("assets/giraffe1.png",
+                        "assets/giraffe2.png", "giraffe", giraffeAcc),
                   ],
                 )
               ],
             ),
-         
-             giraffeAcc
+            giraffeAcc
                 ? Container()
                 : DragObject(
                     image: "assets/giraffe1.png",
@@ -72,21 +64,21 @@ class _AnimalsL3State extends State<AnimalsL3> {
         return acc
             ? Image.asset(
                 image,
-                width: 130,
-                height: 130,
+                width: 200,
+                height: 200,
               )
             : data.isEmpty
                 ? Image.asset(
                     image2,
-                    width: 130,
-                    height: 130,
+                    width: 200,
+                    height: 200,
                   )
                 : Opacity(
                     opacity: 0.7,
                     child: Image.asset(
                       image2,
-                      width: 130,
-                      height: 130,
+                      width: 200,
+                      height: 200,
                     ),
                   );
       },
@@ -94,11 +86,8 @@ class _AnimalsL3State extends State<AnimalsL3> {
         if (data == nama) {
           setState(() {
             acc = true;
-            score+=70;
-             plyr.play('success.mp3');
-
-
-
+            plyr.play('small-audience-clappings-weak_MJoXSBEu_edit 1.mp3');
+            plyr.play('success.mp3');
           });
 
           switch (nama) {
@@ -106,25 +95,80 @@ class _AnimalsL3State extends State<AnimalsL3> {
               setState(() {
                 giraffeAcc = true;
                 plyr.play('giraffe.mp3');
-                 Navigator.push(
-                                context,
-          MaterialPageRoute(builder: (context) =>  AnimalsL4()),
-               );
-
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => FinalScore()),
+                );
               });
               break;
-           
-   
             default:
           }
         }
       },
     );
   }
-
   State<StatefulWidget> createState() {
-  
     return null;
   }
 }
 AudioCache plyr = AudioCache();
+
+class FinalScore extends StatefulWidget {
+  @override
+  _FinalScoreState createState() => _FinalScoreState();
+}
+
+class _FinalScoreState extends State<FinalScore> {
+  //Stars :
+  var stars = Container(
+      padding: EdgeInsets.fromLTRB(20.0, 2.0, 20.0, 0.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.max,
+        children: <Widget>[
+          Icon(
+            Icons.star,
+            color: Colors.yellow,
+            size: 80.0,
+          ),
+          Icon(
+            Icons.star,
+            color: Colors.yellow,
+            size: 80.0,
+          ),
+          Icon(
+            Icons.star,
+            color: Colors.yellow,
+            size: 80.0,
+          ),
+          Icon(
+            Icons.star,
+            color: Colors.grey,
+            size: 80.0,
+          )
+        ],
+      ));
+
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(Duration(seconds: 2), () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => AnimalsL4(),
+        ),
+      );
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        padding: EdgeInsets.only(top: 70.0),
+        height: 200.0,
+        child: Center(
+          child: stars,
+        ));
+  }
+}

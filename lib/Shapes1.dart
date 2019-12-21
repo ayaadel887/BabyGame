@@ -36,11 +36,7 @@ class _Shapes1State extends State<Shapes1> {
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                Text(
-                  "Your Score : $score",
-                  style: TextStyle(fontSize: 25, color: Colors.yellow),
-                ),
-             
+               
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
@@ -91,32 +87,23 @@ class _Shapes1State extends State<Shapes1> {
                   );
       },
       onAccept: (data) {
-        if (data == nama) {
+        if (nama == 'Circle') {
           setState(() {
-            acc = true;
+             circleAcc = true;
             score+=100;
              plyr.play('دائره.mp3');
+              Navigator.push(
+                                context,
+          MaterialPageRoute(builder: (context) =>  ShapesL2()),
+               );
 
           });
 
-          switch (nama) {
-          
-           
-            case 'Circle':
-              setState(() {
-                circleAcc = true;
-               Navigator.push(
-                                context,
-          MaterialPageRoute(builder: (context) =>  ShapesL2()),
-               ); 
-              });
-              break;
-           
-            default:
-          }
         }
-      },
-    );
+        });
+        
+      
+    
   }
 
   State<StatefulWidget> createState() {

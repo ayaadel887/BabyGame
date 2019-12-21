@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/animation.dart';
 import 'Animals.dart';
-import 'AnimalsL2.dart';
 import 'Shapes1.dart';
-import 'shapes04.dart';
+import 'shapesL03.dart';
+import 'shapesL2.dart';
 
 
 
@@ -73,9 +73,9 @@ setState(() {
             _part(top: MediaQuery.of(context).size.height/3,right: 60,color: Colors.lightBlue,value: 7,page: ()=>Animals()),
              _part(top: MediaQuery.of(context).size.height/3.6,right: 110,color: Colors.purple,value: 6),
              _part(top: MediaQuery.of(context).size.height/3,right: 160,color: Colors.yellowAccent,value: 5,),
-             _part(top: MediaQuery.of(context).size.height/3.6,right: 210,color: Colors.cyan,value: 4,page: ()=>Shapes4()),
-             _part(top: MediaQuery.of(context).size.height/3,right: 260,color: Colors.blueGrey,value: 3),
-             _part(top: MediaQuery.of(context).size.height/3.6,right: 310,color: Colors.lime,value: 2 ,page: ()=>AnimalsL2()),
+             _part(top: MediaQuery.of(context).size.height/3.6,right: 210,color: Colors.cyan,value: 4,page: ()=>ShapesL03()),
+             _part(top: MediaQuery.of(context).size.height/3,right: 260,color: Colors.blueGrey,value: 3,page: ()=>ShapesL03()),
+             _part(top: MediaQuery.of(context).size.height/3.6,right: 310,color: Colors.lime,value: 2 ,page: ()=>ShapesL2()),
              _part(top: MediaQuery.of(context).size.height/3,right: 360,color: Colors.lightGreen,value: 1 ,page: ()=>Shapes1()),
              _part1(top: MediaQuery.of(context).size.height/5,right: 390,img: 'assets/images/cp.png')
 

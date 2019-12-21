@@ -1,17 +1,16 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'ColorsLeveles.dart';
 import 'dragObject.dart';
 import 'package:audioplayers/audio_cache.dart';
 
-import 'shapesL2.dart';
-
-class Shapes4 extends StatefulWidget {
+class ColorsL03 extends StatefulWidget {
   @override
-  _Shapes4State createState() => _Shapes4State();
+  _ColorsL03State createState() => _ColorsL03State();
 }
 
-class _Shapes4State extends State<Shapes4> {
+class _ColorsL03State extends State<ColorsL03> {
   
   Offset postriangle = Offset(400, 50);
 
@@ -35,10 +34,6 @@ class _Shapes4State extends State<Shapes4> {
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                Text(
-                  "Your Score : $score",
-                  style: TextStyle(fontSize: 25, color: Colors.yellow),
-                ),
              
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -90,26 +85,19 @@ class _Shapes4State extends State<Shapes4> {
                   );
       },
       onAccept: (data) {
-        if (data == nama) {
-          setState(() {
-            acc = true;
-            score+=100;
-             plyr.play('r.mp3');
-
-          });
-
           if (nama=='triangle') {
           
               setState(() {
                triangleAcc = true;
+                plyr.play('احمر.mp3');
                Navigator.push(
                                 context,
-          MaterialPageRoute(builder: (context) =>  ShapesL2()),
+          MaterialPageRoute(builder: (context) =>  ColorsLevels()),
                ); 
               });
               
           }
-        }
+        
       },
     );
   }

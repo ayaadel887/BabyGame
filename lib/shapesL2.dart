@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'ShapesLevels.dart';
 import 'dragObject.dart';
 import 'package:audioplayers/audio_cache.dart';
+
+import 'shapesL03.dart';
 
 
 class ShapesL2 extends StatefulWidget {
@@ -36,14 +37,7 @@ class _ShapesL2State extends State<ShapesL2> {
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                Text(
-                  "Your Score : $score",
-                  style: TextStyle(fontSize: 25, color: Colors.yellow),
-                ),
-                Container(
-                  height: 130,
-                  child: score==100 ? Text("YOU WIN", style: TextStyle(fontSize: 50, color: Colors.red),): Container(),
-                ),
+               
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
@@ -97,26 +91,22 @@ class _ShapesL2State extends State<ShapesL2> {
         if (data == nama) {
           setState(() {
             acc = true;
-            score+=100;
-             plyr.play('success.mp3');
+              });
 
-          });
-
-          switch (nama) {
+      
           
            
-            case 'squire':
+            if(nama =='squire') {
               setState(() {
                 squireAcc = true;
+                plyr.play('مربع.wav');
                Navigator.push(
                                 context,
-          MaterialPageRoute(builder: (context) =>  ShapesLevels()),
+          MaterialPageRoute(builder: (context) =>  ShapesL03()),
                ); 
-              });
-              break;
-           
-            default:
-          }
+              });}
+              
+          
         }
       },
     );

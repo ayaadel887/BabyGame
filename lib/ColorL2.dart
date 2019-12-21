@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'ColorL2.dart';
+import 'ColorsL03.dart';
 import 'dragObject.dart';
 import 'package:audioplayers/audio_cache.dart';
-class ColorL1Red extends StatefulWidget {
+
+
+class ColorL2 extends StatefulWidget {
   @override
-  _ColorL1RedState createState() => _ColorL1RedState();
+  _ColorL2State createState() => _ColorL2State();
 }
 
-class _ColorL1RedState extends State<ColorL1Red> {
+class _ColorL2State extends State<ColorL2> {
   
-  Offset posCircle = Offset(400, 50);
+  Offset possquire = Offset(400, 50);
 
-  bool circleAcc = false;
+  bool squireAcc = false;
 
 
   int score=0;
@@ -28,30 +30,31 @@ class _ColorL1RedState extends State<ColorL1Red> {
       body: Container(
         width: double.infinity,
         height: double.infinity,
+        
         child: Stack(
           children: <Widget>[
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                
+               
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
                 
                     buildDragTarget(
-                        "assets/shapes/REDC1.png", "assets/shapes/redcircle2.jpg", "Circle", circleAcc),
+                        "assets/shapes/bluesquire.jpg", "assets/shapes/bluesquire2.jpg", "squire", squireAcc),
                    
                   ]
                 )
               ],
             ),
           
-            circleAcc
+            squireAcc
                 ? Container()
                 : DragObject(
-                    image: "assets/shapes/REDC1.png",
-                    position: posCircle,
-                    dataNama: "Circle",
+                    image: "assets/shapes/bluesquire.jpg",
+                    position: possquire,
+                    dataNama: "squire",
                   ),
           ],
         ),
@@ -87,26 +90,22 @@ class _ColorL1RedState extends State<ColorL1Red> {
         if (data == nama) {
           setState(() {
             acc = true;
-            score+=100;
-             plyr.play('احمر.mp3');
+              });
 
-          });
-
-          switch (nama) {
+      
           
            
-            case 'Circle':
+            if(nama =='squire') {
               setState(() {
-                circleAcc = true;
+                squireAcc = true;
+                plyr.play('ازرق.wav');
                Navigator.push(
                                 context,
-          MaterialPageRoute(builder: (context) =>  ColorL2()),
+          MaterialPageRoute(builder: (context) =>  ColorsL03()),
                ); 
-              });
-              break;
-           
-            default:
-          }
+              });}
+              
+          
         }
       },
     );

@@ -1,19 +1,21 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'ColorL2.dart';
 import 'dragObject.dart';
 import 'package:audioplayers/audio_cache.dart';
-class ColorL1Red extends StatefulWidget {
+
+import 'shapesL2.dart';
+
+class ShapesL03 extends StatefulWidget {
   @override
-  _ColorL1RedState createState() => _ColorL1RedState();
+  _ShapesL03State createState() => _ShapesL03State();
 }
 
-class _ColorL1RedState extends State<ColorL1Red> {
+class _ShapesL03State extends State<ShapesL03> {
   
-  Offset posCircle = Offset(400, 50);
+  Offset postriangle = Offset(400, 50);
 
-  bool circleAcc = false;
-
+  bool triangleAcc = false;
 
   int score=0;
 
@@ -33,25 +35,25 @@ class _ColorL1RedState extends State<ColorL1Red> {
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                
+             
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
                 
                     buildDragTarget(
-                        "assets/shapes/REDC1.png", "assets/shapes/redcircle2.jpg", "Circle", circleAcc),
+                        "assets/shapes/redt1.png", "assets/shapes/redt2.png", "triangle",triangleAcc ),
                    
                   ]
                 )
               ],
             ),
-          
-            circleAcc
+           
+         triangleAcc
                 ? Container()
                 : DragObject(
-                    image: "assets/shapes/REDC1.png",
-                    position: posCircle,
-                    dataNama: "Circle",
+                    image: "assets/shapes/redt1.png",
+                    position: postriangle,
+                    dataNama: "triangle",
                   ),
           ],
         ),
@@ -84,30 +86,19 @@ class _ColorL1RedState extends State<ColorL1Red> {
                   );
       },
       onAccept: (data) {
-        if (data == nama) {
-          setState(() {
-            acc = true;
-            score+=100;
-             plyr.play('احمر.mp3');
-
-          });
-
-          switch (nama) {
+          if (nama=='triangle') {
           
-           
-            case 'Circle':
               setState(() {
-                circleAcc = true;
+               triangleAcc = true;
+                plyr.play('مثلث.wav');
                Navigator.push(
                                 context,
-          MaterialPageRoute(builder: (context) =>  ColorL2()),
+          MaterialPageRoute(builder: (context) =>  ShapesL2()),
                ); 
               });
-              break;
-           
-            default:
+              
           }
-        }
+        
       },
     );
   }
@@ -118,3 +109,4 @@ class _ColorL1RedState extends State<ColorL1Red> {
   }
 }
 AudioCache plyr = AudioCache();
+

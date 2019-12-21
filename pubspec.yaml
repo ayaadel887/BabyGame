@@ -45,6 +45,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/
     - assets/images/backgroundup.jpg
     - assets/shapes/
     - assets/images/backgrounddown.jpg
@@ -69,6 +70,9 @@ flutter:
     - assets/horse.mp3
     - assets/giraffe.mp3
     - assets/دائره.mp3
+    - assets/r.mp3
+    - assets/احمر.mp3
+    
 
     
 

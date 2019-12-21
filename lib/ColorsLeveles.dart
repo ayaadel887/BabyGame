@@ -3,7 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter/animation.dart';
 import 'Animals.dart';
 import 'AnimalsL2.dart';
-import 'Shapes1.dart';
+import 'ColorL1Red.dart';
+
+
 
 
 
@@ -74,7 +76,7 @@ setState(() {
              _part(top: MediaQuery.of(context).size.height/3.6,right: 210,color: Colors.cyan,value: 4),
              _part(top: MediaQuery.of(context).size.height/3,right: 260,color: Colors.blueGrey,value: 3),
              _part(top: MediaQuery.of(context).size.height/3.6,right: 310,color: Colors.lime,value: 2 ,page: ()=>AnimalsL2()),
-             _part(top: MediaQuery.of(context).size.height/3,right: 360,color: Colors.lightGreen,value: 1 ,page: ()=>Shapes1()),
+             _part(top: MediaQuery.of(context).size.height/3,right: 360,color: Colors.lightGreen,value: 1 ,page: ()=>ColorL1Red()),
              _part1(top: MediaQuery.of(context).size.height/5,right: 390,img: 'assets/images/cp.png')
 
 

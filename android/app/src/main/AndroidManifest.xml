@@ -1,6 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.smart_baby_shape">
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    package="com.example.smart_baby_shapes">
 
     <!-- io.flutter.app.FlutterApplication is an android.app.Application that
          calls FlutterMain.startInitialization(this); in its onCreate method.
@@ -9,7 +8,7 @@
          FlutterApplication and put your custom class here. -->
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="smart_baby_shape"
+        android:label="smart_baby_shapes"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

@@ -1,53 +1,35 @@
-import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:audioplayers/audio_cache.dart';
-import 'package:smart_baby_shape/Animals.dart';
 import 'AnimalsLevels.dart';
-import 'ColorsLevels.dart';
+import 'ColorsLeveles.dart';
 import 'ShapesLevels.dart';
 
 void main() => runApp(MyApp());
-
+// this comment is for github
 /// This Widget is the main application widget.
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
+class MyApp extends StatelessWidget {
   static const String _title = 'Smart Baby shape';
 
   @override
   Widget build(BuildContext context) {
-      // Set landscape orientation
+    // Set landscape orientation
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.landscapeLeft,
       DeviceOrientation.landscapeRight,
     ]);
     return MaterialApp(
       title: _title,
-      home: Mn(),
+      home: MyStatelessWidget(),
       debugShowCheckedModeBanner: false,
     );
-
   }
 }
 
 final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
-class Mn extends StatefulWidget {
-  @override
-  _MnState createState() => _MnState();
-}
+class MyStatelessWidget extends StatelessWidget {
+  MyStatelessWidget({Key key}) : super(key: key);
 
-class _MnState extends State<Mn> {
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    sound().plyr.play("baby.mp3");
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -77,9 +59,7 @@ class _MnState extends State<Mn> {
               IconButton(
                 icon: const Icon(Icons.audiotrack),
                 tooltip: 'Show Snackbar',
-                onPressed: () {
-                  sound().plyr.play("assets/audio/baby.mp3"
-                },
+                onPressed: () {},
               ),
             ]),
 
@@ -126,7 +106,7 @@ class _MnState extends State<Mn> {
                         padding: const EdgeInsets.all(6.0),
                         margin: const EdgeInsets.all(4.0),
                         child:
-                        const Text('اشكال', style: TextStyle(fontSize: 11)),
+                            const Text('اشكال', style: TextStyle(fontSize: 11)),
                       ),
                       elevation: 5.0,
                       splashColor: Colors.lightBlue[100],
@@ -164,7 +144,7 @@ class _MnState extends State<Mn> {
                         padding: const EdgeInsets.all(6.0),
                         margin: const EdgeInsets.all(4.0),
                         child:
-                        const Text('الوان', style: TextStyle(fontSize: 11)),
+                            const Text('الوان', style: TextStyle(fontSize: 11)),
                       ),
                       elevation: 5.0,
                       splashColor: Colors.lightBlue[100],
@@ -228,27 +208,3 @@ class _MnState extends State<Mn> {
     );
   }
 }
-
-class sound {
-
-  final asset =
-  Icon(
-    Icons.volume_up,
-    color: Colors.black,
-    size: 40.0,
-  );
-  final nonaudio = Icon(
-    Icons.volume_off,
-    size: 40.0,
-
-  );
-  AudioCache plyr = AudioCache();
-  AudioPlayer audioPlayer = AudioPlayer();
-
-  playLocal() async {
-    int result = await audioPlayer.play("assets/audio/baby.mp3", isLocal: true);
-  }
-
-
-  }
-

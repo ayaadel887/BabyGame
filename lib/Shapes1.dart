@@ -12,7 +12,7 @@ class Shapes1 extends StatefulWidget {
 }
 
 class _Shapes1State extends State<Shapes1> {
-
+  
   Offset posCircle = Offset(400, 50);
 
   bool circleAcc = false;
@@ -24,9 +24,9 @@ class _Shapes1State extends State<Shapes1> {
   Widget build(BuildContext context) {
 
     SystemChrome.setPreferredOrientations([
-      DeviceOrientation.landscapeLeft,
-      DeviceOrientation.landscapeRight,
-    ]);
+  DeviceOrientation.landscapeLeft,
+  DeviceOrientation.landscapeRight,
+]);
     return Scaffold(
       body: Container(
         width: double.infinity,
@@ -40,26 +40,26 @@ class _Shapes1State extends State<Shapes1> {
                   "Your Score : $score",
                   style: TextStyle(fontSize: 25, color: Colors.yellow),
                 ),
-
+             
                 Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: <Widget>[
-
-                      buildDragTarget(
-                          "assets/shapes/REDC1.png", "assets/shapes/redcircle2.jpg", "Circle", circleAcc),
-
-                    ]
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: <Widget>[
+                
+                    buildDragTarget(
+                        "assets/shapes/REDC1.png", "assets/shapes/redcircle2.jpg", "Circle", circleAcc),
+                   
+                  ]
                 )
               ],
             ),
-
+          
             circleAcc
                 ? Container()
                 : DragObject(
-              image: "assets/shapes/REDC1.png",
-              position: posCircle,
-              dataNama: "Circle",
-            ),
+                    image: "assets/shapes/REDC1.png",
+                    position: posCircle,
+                    dataNama: "Circle",
+                  ),
           ],
         ),
       ),
@@ -71,47 +71,47 @@ class _Shapes1State extends State<Shapes1> {
       builder: (context, List<String> data, rj) {
         return acc
             ? Image.asset(
-          image,
-          width: 130,
-          height: 130,
-        )
+                image,
+                width: 130,
+                height: 130,
+              )
             : data.isEmpty
-            ? Image.asset(
-          image2,
-          width: 130,
-          height: 130,
-        )
-            : Opacity(
-          opacity: 0.7,
-          child: Image.asset(
-            image2,
-            width: 130,
-            height: 130,
-          ),
-        );
+                ? Image.asset(
+                    image2,
+                    width: 130,
+                    height: 130,
+                  )
+                : Opacity(
+                    opacity: 0.7,
+                    child: Image.asset(
+                      image2,
+                      width: 130,
+                      height: 130,
+                    ),
+                  );
       },
       onAccept: (data) {
         if (data == nama) {
           setState(() {
             acc = true;
             score+=100;
-            plyr.play('دائره.mp3');
+             plyr.play('دائره.mp3');
 
           });
 
           switch (nama) {
-
-
+          
+           
             case 'Circle':
               setState(() {
                 circleAcc = true;
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) =>  ShapesL2()),
-                );
+               Navigator.push(
+                                context,
+          MaterialPageRoute(builder: (context) =>  ShapesL2()),
+               ); 
               });
               break;
-
+           
             default:
           }
         }
@@ -120,7 +120,7 @@ class _Shapes1State extends State<Shapes1> {
   }
 
   State<StatefulWidget> createState() {
-
+   
     return null;
   }
 }

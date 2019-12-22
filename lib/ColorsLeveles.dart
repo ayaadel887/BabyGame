@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/animation.dart';
-import 'Animals.dart';
-import 'AnimalsL2.dart';
 import 'ColorL1Red.dart';
+import 'ColoresL201.dart';
+import 'ColorsL03.dart';
 
 
 
@@ -63,21 +63,21 @@ setState(() {
           decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage("assets/shapes/bglevels.jpg"),
-            fit: BoxFit.cover,
+            fit: BoxFit.contain,
           ),
-        ), 
-             
+        ),
+            
 
             child: Stack(
               children: <Widget>[
-            _part(top: MediaQuery.of(context).size.height/3,right: 60,color: Colors.lightBlue,value: 7,page: ()=>Animals()),
-             _part(top: MediaQuery.of(context).size.height/3.6,right: 110,color: Colors.purple,value: 6),
-             _part(top: MediaQuery.of(context).size.height/3,right: 160,color: Colors.yellowAccent,value: 5,),
-             _part(top: MediaQuery.of(context).size.height/3.6,right: 210,color: Colors.cyan,value: 4),
-             _part(top: MediaQuery.of(context).size.height/3,right: 260,color: Colors.blueGrey,value: 3),
-             _part(top: MediaQuery.of(context).size.height/3.6,right: 310,color: Colors.lime,value: 2 ,page: ()=>AnimalsL2()),
-             _part(top: MediaQuery.of(context).size.height/3,right: 360,color: Colors.lightGreen,value: 1 ,page: ()=>ColorL1Red()),
-             _part1(top: MediaQuery.of(context).size.height/5,right: 390,img: 'assets/images/cp.png')
+            _part(top: MediaQuery.of(context).size.height/3,right: 360,color: Colors.lightBlue,value: 7,page: ()=>ColorsL03()),
+             _part(top: MediaQuery.of(context).size.height/3.6,right: 410,color: Colors.purple,value: 6),
+             _part(top: MediaQuery.of(context).size.height/3,right: 460,color: Colors.yellowAccent,value: 5,),
+             _part(top: MediaQuery.of(context).size.height/3.6,right: 510,color: Colors.cyan,value: 4),
+             _part(top: MediaQuery.of(context).size.height/3,right: 560,color: Colors.blueGrey,value: 3,page: ()=>ColorsL03()),
+             _part(top: MediaQuery.of(context).size.height/3.6,right: 610,color: Colors.lime,value: 2 ,page: ()=>Colores201()),
+             _part(top: MediaQuery.of(context).size.height/3,right: 660,color: Colors.lightGreen,value: 1 ,page: ()=>ColorL1Red()),
+             _part1(top: MediaQuery.of(context).size.height/5,right: 690,img: 'assets/images/cp.png')
 
 
               
@@ -124,7 +124,7 @@ Navigator.push(context, MaterialPageRoute(builder: (context)=>page()));
       top: top,
       right: right,
       child: CircleAvatar(
-        radius: size+10,
+        radius: size+25,
         backgroundColor: Colors.transparent,
         backgroundImage: ExactAssetImage('$img'),
       ),

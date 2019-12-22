@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'ColorsL03.dart';
+import 'package:smart_baby_shapes/ColorsLeveles.dart';
 import 'dragObject.dart';
 import 'package:audioplayers/audio_cache.dart';
 
@@ -42,7 +42,7 @@ class _ColorsL4State extends State<ColorsL4> {
                   children: <Widget>[
                 
                     buildDragTarget(
-                        "assets/shapes/bluesquire.jpg", "assets/shapes/bluesquire2.jpg", "squire", squireAcc),
+                        "assets/shapes/yt1.jpg", "assets/shapes/yallotriangle2.png", "squire", squireAcc),
                    
                   ]
                 )
@@ -52,7 +52,7 @@ class _ColorsL4State extends State<ColorsL4> {
             squireAcc
                 ? Container()
                 : DragObject(
-                    image: "assets/shapes/bluesquire.jpg",
+                    image: "assets/shapes/yt1.jpg",
                     position: possquire,
                     dataNama: "squire",
                   ),
@@ -98,7 +98,7 @@ class _ColorsL4State extends State<ColorsL4> {
             if(nama =='squire') {
               setState(() {
                 squireAcc = true;
-                plyr.play('ازرق.wav');
+                plyr.play('اصفر.wav');
                 plyr.play('small-audience-clappings-weak_MJoXSBEu_edit 1.mp3');
            Navigator.push(
                   context,
@@ -119,6 +119,7 @@ class _ColorsL4State extends State<ColorsL4> {
   }
 }
 AudioCache plyr = AudioCache();
+
 
 class FinalScore extends StatefulWidget {
   @override
@@ -145,12 +146,12 @@ class _FinalScoreState extends State<FinalScore> {
           ),
           Icon(
             Icons.star,
-            color: Colors.grey,
+            color: Colors.yellow,
             size: 80.0,
           ),
           Icon(
             Icons.star,
-            color: Colors.grey,
+            color: Colors.yellow,
             size: 80.0,
           )
         ],
@@ -163,7 +164,7 @@ class _FinalScoreState extends State<FinalScore> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => ColorsL03(),
+          builder: (context) => ColorsLevels(),
         ),
       );
     });

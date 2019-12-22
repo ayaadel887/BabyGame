@@ -33,7 +33,7 @@ class _ShapesL2State extends State<ShapesL2> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: <Widget>[
                       buildDragTarget("assets/shapes/bluesquire.jpg",
-                          "assets/shapes/bluesquire2.jpg", "squire", squireAcc),
+                          "assets/shapes/bluesquire2.png", "squire", squireAcc),
                     ])
               ],
             ),

@@ -42,7 +42,7 @@ class _ColorL2State extends State<ColorL2> {
                   children: <Widget>[
                 
                     buildDragTarget(
-                        "assets/shapes/bluesquire.jpg", "assets/shapes/bluesquire2.jpg", "squire", squireAcc),
+                        "assets/shapes/bluesquire.jpg", "assets/shapes/bluesquire2.png", "squire", squireAcc),
                    
                   ]
                 )

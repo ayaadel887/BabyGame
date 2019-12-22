@@ -15,7 +15,7 @@ class _ColorL1RedState extends State<ColorL1Red> {
   bool circleAcc = false;
 
 
-  int score=0;
+  
 
   @override
   Widget build(BuildContext context) {
@@ -84,29 +84,21 @@ class _ColorL1RedState extends State<ColorL1Red> {
                   );
       },
       onAccept: (data) {
-        if (data == nama) {
+        if (nama == 'Circle') {
           setState(() {
-            acc = true;
-            score+=100;
+            circleAcc = true;
+            
              plyr.play('احمر.mp3');
+              plyr.play('small-audience-clappings-weak_MJoXSBEu_edit 1.mp3');
+               Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => FinalScore()),
+                );
+              
 
           });
 
-          switch (nama) {
-          
-           
-            case 'Circle':
-              setState(() {
-                circleAcc = true;
-               Navigator.push(
-                                context,
-          MaterialPageRoute(builder: (context) =>  ColorL2()),
-               ); 
-              });
-              break;
-           
-            default:
-          }
+        
         }
       },
     );
@@ -118,3 +110,63 @@ class _ColorL1RedState extends State<ColorL1Red> {
   }
 }
 AudioCache plyr = AudioCache();
+
+class FinalScore extends StatefulWidget {
+  @override
+  _FinalScoreState createState() => _FinalScoreState();
+}
+
+class _FinalScoreState extends State<FinalScore> {
+  //Stars :
+  var stars = Container(
+      padding: EdgeInsets.fromLTRB(20.0, 2.0, 20.0, 0.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.max,
+        children: <Widget>[
+          Icon(
+            Icons.star,
+            color: Colors.yellow,
+            size: 80.0,
+          ),
+          Icon(
+            Icons.star,
+            color: Colors.grey,
+            size: 80.0,
+          ),
+          Icon(
+            Icons.star,
+            color: Colors.grey,
+            size: 80.0,
+          ),
+          Icon(
+            Icons.star,
+            color: Colors.grey,
+            size: 80.0,
+          )
+        ],
+      ));
+
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(Duration(seconds: 2), () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ColorL2(),
+        ),
+      );
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        padding: EdgeInsets.only(top: 70.0),
+        height: 200.0,
+        child: Center(
+          child: stars,
+        ));
+  }
+}

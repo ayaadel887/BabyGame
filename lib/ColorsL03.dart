@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'ColorsLeveles.dart';
+import 'ColorsL4.dart';
 import 'dragObject.dart';
 import 'package:audioplayers/audio_cache.dart';
 
@@ -90,10 +90,12 @@ class _ColorsL03State extends State<ColorsL03> {
               setState(() {
                triangleAcc = true;
                 plyr.play('احمر.mp3');
-               Navigator.push(
-                                context,
-          MaterialPageRoute(builder: (context) =>  ColorsLevels()),
-               ); 
+                 plyr.play('small-audience-clappings-weak_MJoXSBEu_edit 1.mp3');
+           Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => FinalScore()),
+                );
+               
               });
               
           }
@@ -108,4 +110,63 @@ class _ColorsL03State extends State<ColorsL03> {
   }
 }
 AudioCache plyr = AudioCache();
+class FinalScore extends StatefulWidget {
+  @override
+  _FinalScoreState createState() => _FinalScoreState();
+}
+
+class _FinalScoreState extends State<FinalScore> {
+  //Stars :
+  var stars = Container(
+      padding: EdgeInsets.fromLTRB(20.0, 2.0, 20.0, 0.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.max,
+        children: <Widget>[
+          Icon(
+            Icons.star,
+            color: Colors.yellow,
+            size: 80.0,
+          ),
+          Icon(
+            Icons.star,
+            color: Colors.yellow,
+            size: 80.0,
+          ),
+          Icon(
+            Icons.star,
+            color: Colors.yellow,
+            size: 80.0,
+          ),
+          Icon(
+            Icons.star,
+            color: Colors.grey,
+            size: 80.0,
+          )
+        ],
+      ));
+
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(Duration(seconds: 2), () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ColorsL4(),
+        ),
+      );
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        padding: EdgeInsets.only(top: 70.0),
+        height: 200.0,
+        child: Center(
+          child: stars,
+        ));
+  }
+}
 

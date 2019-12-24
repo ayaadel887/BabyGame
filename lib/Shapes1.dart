@@ -76,27 +76,17 @@ class _Shapes1State extends State<Shapes1> {
                   );
       },
       onAccept: (data) {
-        if (data == nama) {
+         if (nama=='Circle') {
           setState(() {
-            acc = true;
-            plyr.play('small-audience-clappings-weak_MJoXSBEu_edit 1.mp3');
-            plyr.play('success.mp3');
+             circleAcc = true;
+              plyr.play('success.mp3');
             plyr.play('دائره.mp3');
-          });
-
-          switch (nama) {
-            case 'Circle':
-              setState(() {
-                circleAcc = true;
-                Navigator.push(
+              plyr.play('small-audience-clappings-weak_MJoXSBEu_edit 1.mp3');
+             Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => FinalScore()),
                 );
-              });
-              break;
-
-            default:
-          }
+          });   
         }
       },
     );

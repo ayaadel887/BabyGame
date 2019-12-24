@@ -78,6 +78,7 @@ class _ShapesL2State extends State<ShapesL2> {
         if (data == nama) {
           setState(() {
             acc = true;
+            plyr.play('مربع.wav');
             plyr.play('success.mp3');
             plyr.play('small-audience-clappings-weak_MJoXSBEu_edit 1.mp3');
           });

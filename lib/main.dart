@@ -181,7 +181,7 @@ Column(children: <Widget>[
 ],
 ),
  Column(children: <Widget>[
-   Image.asset("assets/images/colors.jpg",fit: BoxFit.cover,),
+   Image.asset("assets/images/colors.jpg",fit: BoxFit.contain,),
     ScaleTransition(
     scale: _animation,  
    child:RaisedButton(
@@ -263,18 +263,23 @@ Column(children: <Widget>[
               ),
            ],
             ),
+            
                         //footer
-                       Row(children: <Widget>[
-                         Expanded(
+                       Expanded(
+                                                child: Row(
+                           mainAxisAlignment: MainAxisAlignment.end,
+                           children: <Widget>[
+                           Expanded(
                 child: Image.asset(
                   "assets/images/backgrounddown.jpg",
                   
                   fit:BoxFit.fitWidth
                 ),
               ),
-                        
-                         ]
-                        ),
+                          
+                           ]
+                          ),
+                       ),
                       ]   
                     
               ),

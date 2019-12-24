@@ -30,9 +30,7 @@ int score=0;
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage("assets/bg.jpg"), fit: BoxFit.cover)),
+        
         child: Stack(
           children: <Widget>[
             Column(
